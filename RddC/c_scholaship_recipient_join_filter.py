@@ -3,7 +3,7 @@ from distutils.util import strtobool
 import os.path
 import yaml
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     os.environ["PYSPARK_SUBMIT_ARGS"] = (
         '--packages "org.apache.hadoop:hadoop-aws:2.7.4" pyspark-shell'
     )
@@ -22,3 +22,8 @@ if __name__ = '__main__':
     print("current dirctory using abspath and dirname", curr_dir1)
     print("current dirctory using dirname", curr_dir2)
 
+
+
+
+
+# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" RddC/c_scholaship_recipient_join_filter.py
