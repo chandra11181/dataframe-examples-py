@@ -52,7 +52,7 @@ if __name__ == '__main__':
         .option("tempdir", "s3a://" + app_conf["s3_conf"]["s3_bucket"] + "/temp") \
         .option("forward_spark_s3_credentials", "true") \
         .option("dbtable", app_conf["redshift_conf"]["dbtablewrt"]) \
-        .mode("overwrite")\
+        .mode("append")\
         .save()
 
     print("Completed   <<<<<<<<<")
