@@ -9,7 +9,7 @@ if __name__ == '__main__':
     )
 
     #create the spark session
-    spark = SpakSession \
+    spark = SparkSession \
         .builder \
         .appName("RDD Examples") \
         .master('local[*]') \
