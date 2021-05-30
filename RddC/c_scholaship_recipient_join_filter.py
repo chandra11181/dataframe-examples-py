@@ -15,12 +15,7 @@ if __name__ == '__main__':
         .master('local[*]') \
         .getOrCreate()
     spark.sparkContext.setLogLevel('ERROR')
-    curr_dir = os.path.abspath(__file__)
     curr_dir1 = os.path.abspath(os.path.dirname(__file__))
-    curr_dir2 = os.path.dirname(__file__)
-    print("current dirctory using abspath",curr_dir)
-    print("current dirctory using abspath and dirname", curr_dir1)
-    print("current dirctory using dirname", curr_dir2)
 
 
 
