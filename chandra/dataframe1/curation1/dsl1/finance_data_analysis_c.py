@@ -14,7 +14,7 @@ if __name__ == '__main__':
         .appName("DSL Examples") \
         .master('local[*]') \
         .getOrCreate()
-    spark.SparkContext.setLogLevel("ERROR")
+    spark.sparkContext.setLogLevel('ERROR')
 
     current_dir = os.path.abspath(os.path.dirname(__file__))
     app_config_path = os.path.abspath(current_dir + "/../../../"+"application.yml")
