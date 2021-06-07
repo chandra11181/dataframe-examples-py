@@ -12,7 +12,7 @@ if __name__ == '__main__':
     spark = SparkSession \
         .builder \
         .appName("DSL Examples") \
-        .master('Local[*]') \
+        .master('local[*]') \
         .getOrCreate()
     spark.SparkContext.setLogLevel("ERROR")
 
