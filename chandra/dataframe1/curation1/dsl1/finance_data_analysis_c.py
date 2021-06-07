@@ -43,10 +43,20 @@ if __name__ == '__main__':
         .show(5, False)
 
     finance_df \
-        .withColumn("Account Details", concat_ws("-","AccountNumber","Description")) \
+        .withColumn("Account Details", concat_ws(" - ","AccountNumber","Description")) \
         .show(5,False)
 
+    agg_functions_df = finance_df \
+        .groupBy("AccountNumber") \
+        .agg(avg("Amount").alias("Average Transactions"),
+             sum("Amount").alias("Total Transactions"),
+             count("Amount").alias("Number of Transactions"),
+             max("Amount").alias("Max Transactions"),
+             min("Amount").alias("Min of transactions"),
+             collect_set("Description").alias("Unique Transaction Description")
+    )
 
+    agg_functions_df.show(5, False)
 
 # spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" chandra/dataframe1/curation1/dsl1/finance_data_analysis_c.py
 
