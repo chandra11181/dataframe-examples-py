@@ -34,6 +34,10 @@ if __name__ == '__main__':
     finance_df.printSchema()
     finance_df.show(5)
 
+    finance_df \
+        .orderBy("Amount") \
+        .Show(5)
+
 
 
 # spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" chandra/dataframe1/curation1/dsl1/finance_data_analysis_c.py
