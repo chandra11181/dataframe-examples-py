@@ -1,5 +1,5 @@
-from spark.sql import SparkSession
-from spark.sql.functions import *
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
 import os.path
 import yaml
 
