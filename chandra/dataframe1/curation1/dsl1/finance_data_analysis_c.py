@@ -58,5 +58,14 @@ if __name__ == '__main__':
 
     agg_functions_df.show(5, False)
 
+    agg_functions_df \
+        .select("accountNumber",
+                "Unique Transaction Description",
+                size("Unique Transaction Description").alias("CountOfUniqueTransactionDescriptions"),
+                sort_array("Unique Transaction Description", False).alias("OrderedUniqueTransactionDescriptions"),
+                array_contains("Unique Transaction Description", "Movies").alias("WentToMovie"))\
+        .show(5,False)
+
+
 # spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" chandra/dataframe1/curation1/dsl1/finance_data_analysis_c.py
 
