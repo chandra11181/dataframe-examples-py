@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
     finance_df \
         .orderBy("Amount") \
-        .Show(5)
+        .show(5)
 
 
 
