@@ -46,4 +46,4 @@ if __name__ == '__main__':
 
     spark.stop()
 
-# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe/ingestion/files/json_df.py
+# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe1/ingestion/files/json_df.py

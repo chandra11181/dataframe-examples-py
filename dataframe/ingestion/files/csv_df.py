@@ -27,7 +27,7 @@ if __name__ == '__main__':
     hadoop_conf.set("fs.s3a.access.key", app_secret["s3_conf"]["access_key"])
     hadoop_conf.set("fs.s3a.secret.key", app_secret["s3_conf"]["secret_access_key"])
 
-    print("\nCreating dataframe ingestion CSV file using 'SparkSession.read.format()'")
+    print("\nCreating dataframe1 ingestion CSV file using 'SparkSession.read.format()'")
 
     fin_schema = StructType() \
         .add("id", IntegerType(), True) \
@@ -46,7 +46,7 @@ if __name__ == '__main__':
     fin_df.printSchema()
     fin_df.show()
 
-    print("Creating dataframe ingestion CSV file using 'SparkSession.read.csv()',")
+    print("Creating dataframe1 ingestion CSV file using 'SparkSession.read.csv()',")
 
     finance_df = spark.read \
         .option("mode", "DROPMALFORMED") \
@@ -71,4 +71,4 @@ if __name__ == '__main__':
 
     spark.stop()
 
-# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe/ingestion/files/csv_df.py
+# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe1/ingestion/files/csv_df.py

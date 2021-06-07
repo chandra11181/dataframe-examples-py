@@ -41,4 +41,4 @@ if __name__ == '__main__':
         .option("collection", app_conf["mongodb_config"]["collection"])\
         .save()
 
-# spark-submit --packages "org.mongodb.spark:mongo-spark-connector_2.11:2.4.2" dataframe/provision/df_mongo.py
+# spark-submit --packages "org.mongodb.spark:mongo-spark-connector_2.11:2.4.2" dataframe1/provision/df_mongo.py

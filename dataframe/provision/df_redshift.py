@@ -33,7 +33,7 @@ if __name__ == '__main__':
     hadoop_conf.set("fs.s3a.access.key", app_secret["s3_conf"]["access_key"])
     hadoop_conf.set("fs.s3a.secret.key", app_secret["s3_conf"]["secret_access_key"])
 
-    print("\nCreating Dataframe ingestion txn_fact dataset,")
+    print("\nCreating dataframe1 ingestion txn_fact dataset,")
     txn_df = spark.read\
         .option("header", "true")\
         .option("delimiter", "|")\
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
     txn_df.show(5, False)
 
-    print("Writing txn_fact dataframe to AWS Redshift Table   >>>>>>>")
+    print("Writing txn_fact dataframe1 to AWS Redshift Table   >>>>>>>")
 
     jdbc_url = ut.get_redshift_jdbc_url(app_secret)
     print(jdbc_url)
@@ -57,4 +57,4 @@ if __name__ == '__main__':
 
     print("Completed   <<<<<<<<<")
 
-# spark-submit --jars "https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/1.2.36.1060/RedshiftJDBC42-no-awssdk-1.2.36.1060.jar" --packages "org.apache.spark:spark-avro_2.11:2.4.2,io.github.spark-redshift-community:spark-redshift_2.11:4.0.1,org.apache.hadoop:hadoop-aws:2.7.4" dataframe/provision/df_redshift.py
+# spark-submit --jars "https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/1.2.36.1060/RedshiftJDBC42-no-awssdk-1.2.36.1060.jar" --packages "org.apache.spark:spark-avro_2.11:2.4.2,io.github.spark-redshift-community:spark-redshift_2.11:4.0.1,org.apache.hadoop:hadoop-aws:2.7.4" dataframe1/provision/df_redshift.py

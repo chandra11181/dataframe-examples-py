@@ -30,7 +30,7 @@ if __name__ == '__main__':
     hadoop_conf.set("fs.s3a.access.key", app_secret["s3_conf"]["access_key"])
     hadoop_conf.set("fs.s3a.secret.key", app_secret["s3_conf"]["secret_access_key"])
 
-    print("\nConvert RDD to Dataframe using SparkSession.createDataframe(),")
+    print("\nConvert RDD to dataframe1 using SparkSession.createDataframe(),")
     # Creating RDD of Row
     txn_fct_rdd = spark.sparkContext.textFile("s3a://" + app_conf["s3_conf"]["s3_bucket"] + "/txn_fct.csv") \
         .filter(lambda record: record.find("txn_id")) \
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     txn_fct_df.printSchema()
     txn_fct_df.show(5, False)
 
-    # Applying transformation on dataframe using DSL (Domain Specific Language)
+    # Applying transformation on dataframe1 using DSL (Domain Specific Language)
     txn_fct_df = txn_fct_df \
         .withColumn("created_time_ist", unix_timestamp(txn_fct_df["created_time_ist"], "yyyy-MM-dd HH:mm:ss").cast(TimestampType()))
 
@@ -76,4 +76,4 @@ if __name__ == '__main__':
 
     txnAggDf.show(5, False)
 
-# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe/ingestion/rdd/rdd2df_thru_explicit_schema.py
+# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe1/ingestion/rdd/rdd2df_thru_explicit_schema.py
