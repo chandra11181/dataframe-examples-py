@@ -3,7 +3,7 @@ from spark.sql.functions import *
 import os.path
 import yaml
 
-if __name__ == '__main__'
+if __name__ == '__main__':
 
     os.environ["PYSPARK_SUBMIT_ARGS"] = (
         '--package "org.apache.hadoop:hadoop-aws:2.7.4" pyspark-shell'
@@ -36,4 +36,5 @@ if __name__ == '__main__'
 
 
 
+# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" chandra/dataframe1/curation1/dsl1/finance_data_analysis_c.py
 
