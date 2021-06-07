@@ -29,7 +29,7 @@ if __name__ == '__main__':
     hadoop_conf.set("fs.s3a.access.key", app_secret["s3_conf"]["access_key"])
     hadoop_conf.set("fs.s3a.secret.key", app_secret["s3_conf"]["secret_access_key"])
 
-    print("\nCreating dataframe ingestion parquet file using 'SparkSession.read.parquet()',")
+    print("\nCreating dataframe1 ingestion parquet file using 'SparkSession.read.parquet()',")
     nyc_omo_df = spark.read \
         .parquet("s3a://" + app_conf["s3_conf"]["s3_bucket"] + "/NYC_OMO") \
         .repartition(5)
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     omo_daily_freq = nyc_omo_df \
         .withColumn("OMODailyFreq", F.count("OMOID").over(window_spec))
 
-    print("# of partitions in window'ed OM dataframe = " + str(omo_daily_freq.count()))
+    print("# of partitions in window'ed OM dataframe1 = " + str(omo_daily_freq.count()))
     omo_daily_freq.show(5)
 
     omo_daily_freq.select("OMOCreateDate", "OMODailyFreq") \
@@ -81,4 +81,4 @@ if __name__ == '__main__':
 
     spark.stop()
 
-# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe/ingestion/files/parquet_df.py
+# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe1/ingestion/files/parquet_df.py

@@ -33,4 +33,4 @@ if __name__ == '__main__':
 
     ol_txn_df.show(5, False)
 
-# spark-submit --packages "com.springml:spark-sftp_2.11:1.1.1" dataframe/ingestion/others/systems/sftp_df.py
+# spark-submit --packages "com.springml:spark-sftp_2.11:1.1.1" dataframe1/ingestion/others/systems/sftp_df.py

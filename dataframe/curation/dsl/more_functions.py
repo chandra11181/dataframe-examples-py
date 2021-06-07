@@ -62,4 +62,4 @@ if __name__ == '__main__':
         .filter(~lower(col("jobType")).isin("chemical engineer", "teacher")) \
         .show()
 
-# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe/curation/dsl/more_functions.py
+# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe1/curation1/dsl1/more_functions.py

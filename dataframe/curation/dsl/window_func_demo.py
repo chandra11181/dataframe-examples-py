@@ -75,4 +75,4 @@ if __name__ == '__main__':
                 dense_rank().over(catRevenueWindowSpec).alias("rev_dense_rank")) \
         .show()
 
-# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe/curation/dsl/window_func_demo.py
+# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe1/curation1/dsl1/window_func_demo.py
