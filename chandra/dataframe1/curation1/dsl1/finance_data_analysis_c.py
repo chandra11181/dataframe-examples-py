@@ -76,6 +76,13 @@ if __name__ == '__main__':
     companies_df \
         .select("company", posexplode("Employees").alias("employeePosition","employee")) \
         .show()
+    employeeDf = employee_df_tmp.select("company", expr("employee.firstname as firstName"))
+    employeeDf.show()
+    employeeDf.select("*",
+                      when(col("company")=="FamilyCo", "Premium")
+                      .when(col("company") == "NewCo", "New Company")
+                      .when(col("company") == "OldCo"), "Old Company") \
+    .show(5,False)
 
 
 
