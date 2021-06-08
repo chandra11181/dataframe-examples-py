@@ -81,7 +81,7 @@ if __name__ == '__main__':
     employeeDf.select("*",
                       when(col("company")=="FamilyCo", "Premium")
                       .when(col("company") == "NewCo", "New Company")
-                      .when(col("company") == "OldCo"), "Old Company") \
+                      .when(col("company") == "OldCo", "Old Company")) \
     .show(5,False)
 
 
