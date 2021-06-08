@@ -70,6 +70,9 @@ if __name__ == '__main__':
     print("Count = ", companies_df.count())
     companies_df.show(5,False)
     companies_df.printSchema()
+    employee_df_tmp = companies_df \
+        .select("company", explode("employees").alias("employee")) \
+        .show(5,False)
 
 
 
