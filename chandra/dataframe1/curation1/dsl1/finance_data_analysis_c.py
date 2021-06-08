@@ -72,7 +72,10 @@ if __name__ == '__main__':
     companies_df.printSchema()
     employee_df_tmp = companies_df \
         .select("company", explode("employees").alias("employee")) \
-        .show(5,False)
+        .show()
+    companies_df \
+        .select("company", posexplode("Employees").alias("employeePosition","employee")) \
+        .show()
 
 
 
