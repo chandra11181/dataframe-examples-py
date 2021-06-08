@@ -66,6 +66,12 @@ if __name__ == '__main__':
                 array_contains("Unique Transaction Description", "Movies").alias("WentToMovie"))\
         .show(5,False)
 
+    companies_df = spark.read.json("s3a://"+app_conf["s3_conf"]["s3_bucket"]+"/company.json")
+    print("Count = ", companies_df.count())
+    companies_df.show(5,False)
+    companies_df.printSchema()
+
+
 
 # spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" chandra/dataframe1/curation1/dsl1/finance_data_analysis_c.py
 
