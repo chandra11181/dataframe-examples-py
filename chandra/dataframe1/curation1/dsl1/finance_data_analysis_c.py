@@ -71,12 +71,12 @@ if __name__ == '__main__':
     companies_df.show(5,False)
     companies_df.printSchema()
     employee_df_tmp = companies_df \
-        .select("company", explode("employees").alias("employee")) \
-        .show()
+        .select("company", explode("employees").alias("employee"))
+    employee_df_tmp.show()
     companies_df \
         .select("company", posexplode("Employees").alias("employeePosition","employee")) \
         .show()
-    employeeDf = employee_df_tmp.select("company", expr("employee.firstname as firstName"))
+    employeeDf = employee_df_tmp.select("company", expr("employee.firstName as firstName"))
     employeeDf.show()
     employeeDf.select("*",
                       when(col("company")=="FamilyCo", "Premium")
