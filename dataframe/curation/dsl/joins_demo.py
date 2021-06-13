@@ -8,7 +8,7 @@ if __name__ == '__main__':
     spark = SparkSession \
         .builder \
         .appName("DSL examples") \
-        .master('local[*]') \
+        .config("spark.sql.crossJoin.enabled", "true")
         .getOrCreate()
     spark.sparkContext.setLogLevel('ERROR')
 
